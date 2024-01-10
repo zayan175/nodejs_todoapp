@@ -63,12 +63,7 @@ const getMyProfile = (req,resp)=>{
 const logout = async(req,resp)=>{
 
     try {
-        resp.status(200).cookie("token","",{expires:new Date(Date.now()),
-
-        samesite : process.env.NODE_ENV === "Development"? "lax" :  "none",
-        secure : process.env.NODE_ENV === "Development"? false : true,
-        
-         }).json({
+        resp.status(200).json({
             success : true,
             users: req.user,
         })
